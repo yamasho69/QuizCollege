@@ -1,11 +1,11 @@
 package shohei.yamamoto.quizcollege;
 
-
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -24,13 +24,13 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
     private int NumberOfQuestions = 7;
     private TextView timerText;
     private TextView missText;
-    private TextView pointText;
+    public TextView pointText;
     private TextView questionText;
     private Button answerButton1;
     private Button answerButton2;
     private Button answerButton3;
     private Button answerButton4;
-    private int point;
+    private int point ;
     private String questions[][] = new String[NumberOfQuestions][5];
     private int count = 0;
     private String answerStr;
@@ -62,13 +62,14 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         try {
             AssetManager as = getResources ().getAssets ();
             InputStream is = as.open ( "test.csv" );
-            CSVReader reader = new CSVReader( new InputStreamReader ( is), ',');
+            CSVReader reader = new CSVReader( new InputStreamReader (is), ',');
             for (int i = 0; i < NumberOfQuestions; i++) {
                 questions[i] = reader.readNext();
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
+
         // 問題をシャッフル
         order = createRandomArray(NumberOfQuestions, 0);
         setNextText ();
@@ -79,6 +80,7 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
             public void run() {
 // UIスレッドへ処理をキューイング
                 handler.post(new Runnable() {
+                    @SuppressLint("SetTextI18n")
                     @Override
                     public void run() {
                         time -= 0.1d;
@@ -96,7 +98,6 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
             }
         }, 100, 100);
     }
-
     private int[] createRandomArray(int n, int offset) {
         int data[] = new int[n];
         Random random1 = new Random();
@@ -114,9 +115,10 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         }
         return data;
     }
+    @SuppressLint("SetTextI18n")
     private void setNextText() {
         if (count >= NumberOfQuestions) {
-            Intent intent = new Intent ( this, EndActivity.class);
+            Intent intent = new Intent(this, EndActivity.class);
             intent.putExtra("point", point);
             startActivity(intent);
             count = 0;
@@ -137,14 +139,23 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
             timer.cancel();
         }
     }
+    @SuppressLint("SetTextI18n")
     @Override
     public void onClick(View v) {
         if (((Button) v).getText ().equals ( answerStr )) {
             point += 10;
-        Log.d ( "Quiz" , "point:" + point );
+            pointText.setText("ポイント:" + point);
     } else {
         missCount++;
     }
         setNextText ();
+    }
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if(keyCode == KeyEvent.KEYCODE_BACK) {
+            return super.onKeyDown(keyCode, event);
+        } else {
+            return super.onKeyDown(keyCode, event);
+        }
     }
 }

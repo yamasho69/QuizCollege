@@ -6,22 +6,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 
-public class EndActivity extends AppCompatActivity implements View.OnClickListener {
+public class StartActivity extends AppCompatActivity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate ( savedInstanceState );
-        setContentView ( R.layout.activity_end );
-        Bundle bundle = getIntent ().getExtras ();
-        if (bundle != null) {
-            int point = bundle.getInt ( "point" );
-            TextView scoreText = (TextView) findViewById ( R.id.point );
-            scoreText.setText ( String.format ( "%d" , point ) );
-        }
-        Button button = (Button) findViewById ( R.id.retry );
-        button.setOnClickListener ( this );
+        setContentView ( R.layout.activity_start );
+        Button button = (Button) findViewById ( R.id.start );
+        button.setOnClickListener (this);
     }
 
     @Override
@@ -34,8 +27,7 @@ public class EndActivity extends AppCompatActivity implements View.OnClickListen
         if (keyCode != KeyEvent.KEYCODE_BACK) {
             return super.onKeyDown ( keyCode , event );
         } else {
-            Intent intent = new Intent ( this , QuizActivity.class );
-            startActivity ( intent );
+            finish ();
         }
         return false;
     }

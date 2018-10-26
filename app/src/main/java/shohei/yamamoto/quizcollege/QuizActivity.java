@@ -1,5 +1,6 @@
 package shohei.yamamoto.quizcollege;
 
+import android.content.res.AssetManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -7,9 +8,18 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+
+import au.com.bytecode.opencsv.CSVReader;
+
 public class QuizActivity extends AppCompatActivity implements View.OnClickListener{
 
-    private int NumberOfQuestions = 3;
+    private int NumberOfQuestions = 7;
+    private TextView timerText;
+    private TextView missText;
+    private TextView pointText;
     private TextView questionText;
     private Button answerButton1;
     private Button answerButton2;
@@ -34,22 +44,17 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         answerButton2.setOnClickListener(this);
         answerButton3.setOnClickListener(this);
         answerButton4.setOnClickListener(this);
-// 問題をセット
-        questions[0][0] = "テストの問題1です";
-        questions[0][1] = "解答1";
-        questions[0][2] = "解答2";
-        questions[0][3] = "解答3";
-        questions[0][4] = "解答4";
-        questions[1][0] = "テストの問題2です";
-        questions[1][1] = "解答1";
-        questions[1][2] = "解答2";
-        questions[1][3] = "解答3";
-        questions[1][4] = "解答4";
-        questions[2][0] = "テストの問題3です";
-        questions[2][1] = "解答1";
-        questions[2][2] = "解答2";
-        questions[2][3] = "解答3";
-        questions[2][4] = "解答4";
+        try {
+            AssetManager as = getResources().getAssets();
+            InputStream is = as.open("test.csv");
+            CSVReader reader = new CSVReader(new InputStreamReader(is), ',');
+            for (int i = 0; i < NumberOfQuestions; i++) {
+                questions[i] = reader.readNext();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        //pointText.setText("ポイント:" + point);
         setNextText();
     }
     @Override

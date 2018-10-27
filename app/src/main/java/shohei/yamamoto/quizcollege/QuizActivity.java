@@ -21,7 +21,7 @@ import java.util.TimerTask;
 import au.com.bytecode.opencsv.CSVReader;
 
 public class QuizActivity extends AppCompatActivity implements View.OnClickListener {
-    private int NumberOfQuestions = 20;
+    private int NumberOfQuestions = 30; //全問題数
     private TextView timerText;
     private TextView missText;
     public TextView pointText;
@@ -30,9 +30,9 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
     private Button answerButton2;
     private Button answerButton3;
     private Button answerButton4;
-    private int point ;
+    private int point ; //得点
     private String questions[][] = new String[NumberOfQuestions][5];
-    private int count = 0;
+    private int count = 0; //出題数
     private String answerStr;
     int[] order = null;
     private Timer timer = null;
@@ -136,6 +136,8 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         if (missCount >= LimitOfMiss) {
             Intent intent = new Intent(this, EndActivity.class);
             intent.putExtra("point", point);
+            startActivity(intent);
+            count = 0;
             timer.cancel();
         }
     }
@@ -154,7 +156,8 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
             Intent intent = new Intent(this, EndActivity.class);
             intent.putExtra("point", point);
             startActivity(intent);
-            count = 0; }
+            count = 0;
+            timer.cancel();}
     }
 
 

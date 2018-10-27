@@ -21,7 +21,7 @@ import java.util.TimerTask;
 import au.com.bytecode.opencsv.CSVReader;
 
 public class QuizActivity extends AppCompatActivity implements View.OnClickListener {
-    private int NumberOfQuestions = 7;
+    private int NumberOfQuestions = 20;
     private TextView timerText;
     private TextView missText;
     public TextView pointText;
@@ -147,9 +147,17 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
             pointText.setText("ポイント:" + point);
     } else {
         missCount++;
-    }
+    }  if(count != 10)
+        {
         setNextText ();
+    } else {
+            Intent intent = new Intent(this, EndActivity.class);
+            intent.putExtra("point", point);
+            startActivity(intent);
+            count = 0; }
     }
+
+
     @Override
     public boolean onKeyDown(int keyCode , KeyEvent event) {
         if (keyCode != KeyEvent.KEYCODE_BACK) {

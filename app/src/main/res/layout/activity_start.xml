@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#f0e68c"
-    tools:context=".StartActivity">
+    tools:context=".StartActivity"
+    >
 
     <TextView
         android:id="@+id/title1"
@@ -13,10 +14,11 @@
         android:layout_height="159dp"
         android:layout_centerHorizontal="true"
         android:text="Quiz"
+        android:textAppearance="@style/TextAppearance.AppCompat"
         android:textColor="#0400ff"
         android:textSize="100sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.11"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -44,21 +46,24 @@
         android:layout_marginTop="45dp"
         android:layout_marginEnd="20dp"
         android:text="Start"
+        android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/copy" />
+        app:layout_constraintTop_toBottomOf="@+id/copy"
+        tools:textSize="30sp" />
 
     <TextView
         android:id="@+id/copy"
         android:layout_width="385dp"
-        android:layout_height="16dp"
+        android:layout_height="35dp"
         android:layout_below="@+id/title2"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="344dp"
+        android:layout_marginTop="332dp"
         android:text="(C)2018 Yamasho"
         android:textColor="#0400ff"
         android:textSize="10sp"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="16dp" />
+        tools:layout_editor_absoluteX="0dp"
+        tools:textSize="24sp" />
 </android.support.constraint.ConstraintLayout>

@@ -33,6 +33,7 @@
             android:id="@+id/question"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:textSize="24sp"
             android:layout_below="@+id/point"/>
         <Button
             android:id="@+id/one"

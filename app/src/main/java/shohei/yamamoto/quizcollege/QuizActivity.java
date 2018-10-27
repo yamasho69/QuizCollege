@@ -151,11 +151,13 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         setNextText ();
     }
     @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if(keyCode == KeyEvent.KEYCODE_BACK) {
-            return super.onKeyDown(keyCode, event);
+    public boolean onKeyDown(int keyCode , KeyEvent event) {
+        if (keyCode != KeyEvent.KEYCODE_BACK) {
+            return super.onKeyDown ( keyCode , event );
         } else {
-            return super.onKeyDown(keyCode, event);
+            Intent intent = new Intent ( this , StartActivity.class );
+            startActivity ( intent );
         }
+        return false;
     }
 }

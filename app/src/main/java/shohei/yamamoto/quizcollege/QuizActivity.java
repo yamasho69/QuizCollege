@@ -134,11 +134,11 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         missText.setText("残りライフ:" + (LimitOfMiss - missCount));
         time = LimitOfTime;
         if (missCount >= LimitOfMiss) {
+            count = 0;
+            timer.cancel();
             Intent intent = new Intent(this, EndActivity.class);
             intent.putExtra("point", point);
             startActivity(intent);
-            count = 0;
-            timer.cancel();
         }
     }
     @SuppressLint("SetTextI18n")
@@ -153,11 +153,12 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         {
         setNextText ();
     } else {
+            count = 0;
+            timer.cancel();
             Intent intent = new Intent(this, EndActivity.class);
             intent.putExtra("point", point);
             startActivity(intent);
-            count = 0;
-            timer.cancel();}
+        }
     }
 
 
@@ -166,6 +167,8 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         if (keyCode != KeyEvent.KEYCODE_BACK) {
             return super.onKeyDown ( keyCode , event );
         } else {
+            count = 0;
+            timer.cancel();
             Intent intent = new Intent ( this , StartActivity.class );
             startActivity ( intent );
         }

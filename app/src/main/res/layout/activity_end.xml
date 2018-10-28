@@ -42,7 +42,9 @@
         android:layout_marginStart="0dp"
         android:layout_marginTop="71dp"
         android:text="Retry？"
-        tools:ignore="UnknownId" />
+        tools:ignore="UnknownId"
+        android:textSize="20sp"
+        tools:textSize="30sp" />
 
     <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
         android:id="@+id/adView"
@@ -52,5 +54,4 @@
         android:layout_alignParentBottom="true"
         ads:adSize="BANNER"
         ads:adUnitId="ca-app-pub-3940256099942544/6300978111" />
-    //ads:adUnitId="ca-app-pub-3712506788718089/1977119518"
 </RelativeLayout>

@@ -31,8 +31,9 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
         if (keyCode != KeyEvent.KEYCODE_BACK) {
             return super.onKeyDown ( keyCode , event );
         } else {
-            Intent intent = new Intent ( this , QuizActivity.class );
-            startActivity ( intent );
+            //Intent intent = new Intent ( this , QuizActivity.class );
+            //startActivity ( intent );
+            finish ();
         }
         return false;
     }

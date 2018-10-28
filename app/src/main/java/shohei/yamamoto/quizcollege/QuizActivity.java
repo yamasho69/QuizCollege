@@ -169,8 +169,10 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         } else {
             count = 0;
             timer.cancel();
-            Intent intent = new Intent ( this , StartActivity.class );
-            startActivity ( intent );
+            //Intentすると同時にIntentをリセットする。
+            Intent intent = new Intent(getApplicationContext(), StartActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
         }
         return false;
     }

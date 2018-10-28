@@ -23,6 +23,8 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
         AdView adView = (AdView)this.findViewById ( R.id.adView );
         AdRequest adRequest = new AdRequest.Builder().build ();
         adView.loadAd(adRequest);
+        //タイトル画面だけタイトルバーを消す
+        getSupportActionBar().hide();
     }
 
 

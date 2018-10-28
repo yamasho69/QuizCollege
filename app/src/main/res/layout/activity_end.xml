@@ -40,7 +40,16 @@
         android:layout_below="@+id/point"
         android:layout_alignParentStart="true"
         android:layout_marginStart="0dp"
-        android:layout_marginTop="99dp"
+        android:layout_marginTop="71dp"
         android:text="Retry？"
         tools:ignore="UnknownId" />
+
+    <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/adView"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        ads:adSize="BANNER"
+        ads:adUnitId="ca-app-pub-3712506788718089/1977119518" />
 </RelativeLayout>

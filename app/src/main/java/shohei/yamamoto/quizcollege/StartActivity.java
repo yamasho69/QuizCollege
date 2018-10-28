@@ -8,6 +8,9 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 public class StartActivity extends AppCompatActivity implements View.OnClickListener {
 
     @Override
@@ -17,6 +20,9 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
         setContentView ( R.layout.activity_start );
         Button button = (Button) findViewById ( R.id.start );
         button.setOnClickListener (this);
+        AdView adView = (AdView)this.findViewById ( R.id.adView );
+        AdRequest adRequest = new AdRequest.Builder().build ();
+        adView.loadAd(adRequest);
     }
 
 

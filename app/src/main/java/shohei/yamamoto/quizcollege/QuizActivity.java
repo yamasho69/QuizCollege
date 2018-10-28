@@ -10,6 +10,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -59,6 +62,9 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         answerButton2.setOnClickListener ( this );
         answerButton3.setOnClickListener ( this );
         answerButton4.setOnClickListener ( this );
+        AdView adView = (AdView)this.findViewById ( R.id.adView );
+        AdRequest adRequest = new AdRequest.Builder().build ();
+        adView.loadAd(adRequest);
         try {
             AssetManager as = getResources ().getAssets ();
             InputStream is = as.open ( "test.csv" );

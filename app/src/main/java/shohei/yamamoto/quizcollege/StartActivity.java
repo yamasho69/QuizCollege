@@ -3,6 +3,7 @@ package shohei.yamamoto.quizcollege;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.KeyEvent;
@@ -12,6 +13,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.PopupWindow;
 
+import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
@@ -26,11 +28,39 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
         setContentView ( R.layout.activity_start );
         Button button = (Button) findViewById ( R.id.start );
         button.setOnClickListener (this);
-        AdView adView = (AdView)this.findViewById ( R.id.adView );
-        AdRequest adRequest = new AdRequest.Builder().build ();
-        adView.loadAd(adRequest);
         //タイトル画面だけタイトルバーを消す
         getSupportActionBar().hide();
+        AdView adView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        adView.loadAd(adRequest);
+
+        // ad's lifecycle: loading, opening, closing, and so on
+        adView.setAdListener(new AdListener () {
+            @Override
+            public void onAdLoaded() {
+                Log.d ( "debug", "Code to be executed when an ad finishes loading." );
+            }
+
+            @Override
+            public void onAdFailedToLoad(int errorCode) {
+                Log.d("debug","Code to be executed when an ad request fails.");
+            }
+
+            @Override
+            public void onAdOpened() {
+                Log.d("debug","Code to be executed when an ad opens an overlay that covers the screen.");
+            }
+
+            @Override
+            public void onAdLeftApplication() {
+                Log.d("debug","Code to be executed when the user has left the app.");
+            }
+
+            @Override
+            public void onAdClosed() {
+                Log.d("debug","Code to be executed when when the user is about to return to the app after tapping on an ad.");
+            }
+        });
     }
 
 
@@ -88,8 +118,6 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
         if (keyCode != KeyEvent.KEYCODE_BACK) {
             return super.onKeyDown ( keyCode , event );
         } else {
-            //Intent intent = new Intent ( this , QuizActivity.class );
-            //startActivity ( intent );
             finish ();
         }
         return false;

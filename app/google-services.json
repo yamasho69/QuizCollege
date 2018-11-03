@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "1079389958708",
+    "firebase_url": "https://quizcollege.firebaseio.com",
+    "project_id": "quizcollege",
+    "storage_bucket": "quizcollege.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1079389958708:android:3f4d4b03e07cbad2",
+        "android_client_info": {
+          "package_name": "shohei.yamamoto.quizcollege"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1079389958708-bu708sigvs3asa13u9k1ni57seimfjti.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAlGNMzfu4Tno6_F-7aazjUq9i71OEtWgI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

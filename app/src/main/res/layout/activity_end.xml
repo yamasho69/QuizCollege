@@ -8,20 +8,22 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin">
+
     <TextView
+        android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="得点は"
-        android:id="@+id/textView1"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:textSize="40sp"/>
+        android:layout_marginTop="0dp"
+        android:text="得点は"
+        android:textSize="40sp" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="00"
         android:id="@+id/point"
-        android:textSize="200sp"
+        android:textSize="150sp"
         android:layout_below="@+id/textView1"
         android:layout_centerHorizontal="true"
         android:textColor="#ff0000"/>
@@ -38,21 +40,24 @@
         android:id="@+id/retry"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/point"
+        android:layout_below="@+id/textView2"
         android:layout_alignParentStart="true"
         android:layout_marginStart="0dp"
-        android:layout_marginTop="71dp"
+        android:layout_marginTop="16dp"
         android:text="Retry？"
-        tools:ignore="UnknownId"
         android:textSize="20sp"
+        tools:ignore="UnknownId"
         tools:textSize="30sp" />
+
     <com.google.android.gms.ads.AdView
         android:id="@+id/adView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/retry"
         android:layout_alignParentBottom="true"
-        ads:adSize="BANNER"
-        ads:adUnitId="ca-app-pub-3712506788718089/1977119518">
-    </com.google.android.gms.ads.AdView>
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="5dp"
+        ads:adSize="LARGE_BANNER"
+        ads:adUnitId="ca-app-pub-3712506788718089/1977119518"></com.google.android.gms.ads.AdView>
 </RelativeLayout>

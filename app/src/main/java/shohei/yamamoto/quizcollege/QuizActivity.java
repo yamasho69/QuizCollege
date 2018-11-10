@@ -27,7 +27,7 @@ import java.util.TimerTask;
 import au.com.bytecode.opencsv.CSVReader;
 
 public class QuizActivity extends AppCompatActivity implements View.OnClickListener {
-    private int NumberOfQuestions = 30; //全問題数
+    private int NumberOfQuestions = 61; //全問題数
     private TextView timerText;
     private TextView missText;
     public TextView pointText;

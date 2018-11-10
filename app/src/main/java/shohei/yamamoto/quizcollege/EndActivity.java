@@ -70,8 +70,10 @@ public class EndActivity extends AppCompatActivity implements View.OnClickListen
         if (keyCode != KeyEvent.KEYCODE_BACK) {
             return super.onKeyDown ( keyCode , event );
         } else {
-            Intent intent = new Intent ( this , StartActivity.class );
-            startActivity ( intent );
+            //Intentすると同時にIntentをリセットする。
+            Intent intent = new Intent(getApplicationContext(), StartActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
         }
         return false;
     }

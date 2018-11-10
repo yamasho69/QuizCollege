@@ -6,8 +6,8 @@ android {
         applicationId "shohei.yamamoto.quizcollege"
         minSdkVersion 19
         targetSdkVersion 28
-        versionCode 6 //更新するとき1増やす
-        versionName "1.5" //更新するとき増やす
+        versionCode 8 //更新するとき1増やす
+        versionName "1.7" //更新するとき増やす
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
